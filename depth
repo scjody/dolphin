@@ -4,6 +4,8 @@ import matplotlib.pyplot as mp
 import numpy
 import frame_convert
 import signal
+from multiprocessing import Process, Value
+import time
 
 keep_running = True
 
@@ -17,8 +19,7 @@ def get_depth():
     minloc = numpy.unravel_index(depth.argmin(), depth.shape)
     y = float(minloc[0])/float(depth.shape[0])
     x = float(minloc[1])/float(depth.shape[1])
-    print x, y
-    return depth
+    return depth, x, y
 
 
 def handler(signum, frame):
@@ -27,15 +28,30 @@ def handler(signum, frame):
     keep_running = False
 
 
+def consumer(sh_x, sh_y):
+    while True:
+        print sh_x.value, sh_y.value
+        time.sleep(1)
+
+
 mp.ion()
 mp.gray()
 mp.figure(1)
-image_depth = mp.imshow(get_depth(), interpolation='nearest', animated=True)
+image_depth = mp.imshow(get_depth()[0], interpolation='nearest', animated=True)
 print('Press Ctrl-C in terminal to stop')
 signal.signal(signal.SIGINT, handler)
 
+sh_x = Value('d', 0.0)
+sh_y = Value('d', 0.0)
+
+p = Process(target=consumer, args=(sh_x, sh_y))
+p.start()
+
 while keep_running:
     mp.figure(1)
-    image_depth.set_data(get_depth())
+    depth, x, y = get_depth()
+    image_depth.set_data(depth)
+    sh_x.value = x
+    sh_y.value = y
     mp.draw()
     mp.waitforbuttonpress(0.01)
