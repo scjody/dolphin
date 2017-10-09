@@ -82,7 +82,7 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
             kinect = JSON.parse(xhr.responseText);
-            moveto(kinect.x * width, kinect.y * height);
+            moveto((1 - kinect.x) * width, kinect.y * height);
         }
 
         requesting = false;
