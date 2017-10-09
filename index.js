@@ -9,6 +9,7 @@ var whale = (function () {
     , delay = 15
     , mouse = {x: width/2, y: height/2}
     , kinect = {x: 0.5, y: 0.5, min: 0}
+    , histsize = 10
     , defs
     , parts
   ;
@@ -82,7 +83,7 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
             kinect = JSON.parse(xhr.responseText);
-            moveto((1 - kinect.x) * width, kinect.y * height);
+            moveto(1 - kinect.x, kinect.y);
         }
 
         requesting = false;
@@ -91,10 +92,24 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
     xhr.send(null);
   }
 
+  var movehist = [];
+  for (var i = 0; i < histsize; i++) {
+      movehist.push({x: 0.5, y: 0.5});
+  }
+  var cumpos = {x: 0.5 * histsize, y: 0.5 * histsize};
+
   function moveto(x, y) {
-    console.log('moveto:', x, y);
+    movehist.push({x: x, y: y});
+    var old = movehist.shift();
+
+    cumpos.x = cumpos.x - old.x + x;
+    cumpos.y = cumpos.y - old.y + y;
+
+    var new_x = cumpos.x / histsize;
+    var new_y = cumpos.y / histsize;
+
     for (var i = 0; i < parts.length; i++) {
-      var params = { mouse:{x: x, y: y}, part:parts[i] };
+      var params = { mouse:{x: new_x * width, y: new_y * height}, part:parts[i] };
       setTimeout(transform, parts[i].z*delay, params );
     };
     element.innerHTML = svg();
