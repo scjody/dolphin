@@ -9,7 +9,11 @@ var whale = (function () {
     , delay = 15
     , mouse = {x: width/2, y: height/2}
     , kinect = {x: 0.5, y: 0.5, min: 0}
-    , histsize = 10
+    , histsize = 5
+    , mindist = 250000
+    , stationarymargin = 0.1
+    , soundtime = 2
+    , soundinterval = 15
     , defs
     , parts
   ;
@@ -102,7 +106,7 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
   var stat_x = 0.5, stat_y = 0.5;
 
   function moveto(x, y) {
-    if (kinect.min < 250000) {
+    if (kinect.min < mindist) {
         movehist.push({x: x, y: y});
         var old = movehist.shift();
 
@@ -112,10 +116,11 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
         new_x = cumpos.x / histsize;
         new_y = cumpos.y / histsize;
 
-        if (Math.abs(new_x - stat_x) < 0.1 && Math.abs(new_y - stat_y) < 0.1) {
+        if (Math.abs(new_x - stat_x) < stationarymargin &&
+            Math.abs(new_y - stat_y) < stationarymargin) {
             stationaryframes++;
 
-            if (stationaryframes > fps * 2) {
+            if (stationaryframes > fps * soundtime) {
                 whalesound();
             }
         } else {
@@ -136,7 +141,7 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
 
   var lastsound = 0;
   function whalesound() {
-      if (Date.now() > lastsound + 15000) {
+      if (Date.now() > lastsound + soundinterval * 1000) {
           lastsound = Date.now();
           var sound = 'whales/whale' + Math.floor(Math.random() * 12) + '.wav';
           var whale = new Audio(sound);
