@@ -83,7 +83,7 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
             kinect = JSON.parse(xhr.responseText);
-            moveto(1 - kinect.x, kinect.y);
+            moveto(1 - kinect.x, kinect.y, kinect.min);
         }
 
         requesting = false;
@@ -97,16 +97,19 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
       movehist.push({x: 0.5, y: 0.5});
   }
   var cumpos = {x: 0.5 * histsize, y: 0.5 * histsize};
+  var new_x = 0.5, new_y = 0.5;
 
   function moveto(x, y) {
-    movehist.push({x: x, y: y});
-    var old = movehist.shift();
+    if (kinect.min < 250000) {
+        movehist.push({x: x, y: y});
+        var old = movehist.shift();
 
-    cumpos.x = cumpos.x - old.x + x;
-    cumpos.y = cumpos.y - old.y + y;
+        cumpos.x = cumpos.x - old.x + x;
+        cumpos.y = cumpos.y - old.y + y;
 
-    var new_x = cumpos.x / histsize;
-    var new_y = cumpos.y / histsize;
+        new_x = cumpos.x / histsize;
+        new_y = cumpos.y / histsize;
+    }
 
     for (var i = 0; i < parts.length; i++) {
       var params = { mouse:{x: new_x * width, y: new_y * height}, part:parts[i] };
