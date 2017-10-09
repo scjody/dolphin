@@ -70,13 +70,22 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
     mouse = {x: e.clientX, y: e.clientY}
   }
 
+  var requesting = false;
+
   function loop() {
+    if (requesting) {
+        return;
+    }
+    requesting = true;
+
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
             kinect = JSON.parse(xhr.responseText);
             moveto(kinect.x * width, kinect.y * height);
         }
+
+        requesting = false;
     }
     xhr.open('GET', 'http://localhost:8888/', true);
     xhr.send(null);
