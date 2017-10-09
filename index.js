@@ -8,6 +8,7 @@ var whale = (function () {
     , maxspeed = 150
     , delay = 15
     , mouse = {x: width/2, y: height/2}
+    , kinect = {x: 0.5, y: 0.5, min: 0}
     , defs
     , parts
   ;
@@ -70,8 +71,21 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
   }
 
   function loop() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+            kinect = JSON.parse(xhr.responseText);
+            moveto(kinect.x * width, kinect.y * height);
+        }
+    }
+    xhr.open('GET', 'http://localhost:8888/', true);
+    xhr.send(null);
+  }
+
+  function moveto(x, y) {
+    console.log('moveto:', x, y);
     for (var i = 0; i < parts.length; i++) {
-      var params = { mouse:mouse, part:parts[i] };
+      var params = { mouse:{x: x, y: y}, part:parts[i] };
       setTimeout(transform, parts[i].z*delay, params );
     };
     element.innerHTML = svg();
