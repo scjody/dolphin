@@ -16,10 +16,11 @@ def get_depth():
     #where = numpy.where(depth == min, True, False)
     #count = numpy.count_nonzero(where == True)
     #print min, count
-    minloc = numpy.unravel_index(depth.argmin(), depth.shape)
+    min = depth.argmin()
+    minloc = numpy.unravel_index(min, depth.shape)
     y = float(minloc[0])/float(depth.shape[0])
     x = float(minloc[1])/float(depth.shape[1])
-    return depth, x, y
+    return depth, x, y, min
 
 
 def handler(signum, frame):
@@ -28,9 +29,9 @@ def handler(signum, frame):
     keep_running = False
 
 
-def consumer(sh_x, sh_y):
+def consumer(sh_x, sh_y, sh_min):
     while True:
-        print sh_x.value, sh_y.value
+        print sh_x.value, sh_y.value, sh_min.value
         time.sleep(1)
 
 
@@ -43,15 +44,17 @@ signal.signal(signal.SIGINT, handler)
 
 sh_x = Value('d', 0.0)
 sh_y = Value('d', 0.0)
+sh_min = Value('d', 0.0)
 
-p = Process(target=consumer, args=(sh_x, sh_y))
+p = Process(target=consumer, args=(sh_x, sh_y, sh_min))
 p.start()
 
 while keep_running:
     mp.figure(1)
-    depth, x, y = get_depth()
+    depth, x, y, min = get_depth()
     image_depth.set_data(depth)
     sh_x.value = x
     sh_y.value = y
+    sh_min.value = min
     mp.draw()
     mp.waitforbuttonpress(0.01)
