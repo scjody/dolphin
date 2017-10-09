@@ -6,6 +6,8 @@ import frame_convert
 import signal
 from multiprocessing import Process, Value
 import time
+import BaseHTTPServer
+import json
 
 keep_running = True
 
@@ -29,10 +31,29 @@ def handler(signum, frame):
     keep_running = False
 
 
+def http_handler_factory(sh_x, sh_y, sh_min):
+    class HTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.send_header("content-type", "application/json")
+            self.end_headers()
+
+            self.wfile.write(json.dumps({
+                'x': sh_x.value,
+                'y': sh_y.value,
+                'min': sh_min.value,
+            }))
+
+    return HTTPHandler
+
+
 def consumer(sh_x, sh_y, sh_min):
+    server_address=('0.0.0.0', 8888)
+    handler = http_handler_factory(sh_x, sh_y, sh_min)
+    httpd = BaseHTTPServer.HTTPServer(server_address, handler)
     while True:
+        httpd.handle_request()
         print sh_x.value, sh_y.value, sh_min.value
-        time.sleep(1)
 
 
 mp.ion()
