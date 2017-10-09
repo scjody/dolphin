@@ -98,6 +98,8 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
   }
   var cumpos = {x: 0.5 * histsize, y: 0.5 * histsize};
   var new_x = 0.5, new_y = 0.5;
+  var stationaryframes = 0;
+  var stat_x = 0.5, stat_y = 0.5;
 
   function moveto(x, y) {
     if (kinect.min < 250000) {
@@ -109,6 +111,20 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
 
         new_x = cumpos.x / histsize;
         new_y = cumpos.y / histsize;
+
+        if (Math.abs(new_x - stat_x) < 0.1 && Math.abs(new_y - stat_y) < 0.1) {
+            stationaryframes++;
+
+            if (stationaryframes > fps * 2) {
+                whalesound();
+            }
+        } else {
+            stationaryframes = 0;
+            stat_x = new_x;
+            stat_y = new_y;
+        }
+    } else {
+        stationaryframes = 0;
     }
 
     for (var i = 0; i < parts.length; i++) {
@@ -116,6 +132,16 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
       setTimeout(transform, parts[i].z*delay, params );
     };
     element.innerHTML = svg();
+  }
+
+  var lastsound = 0;
+  function whalesound() {
+      if (Date.now() > lastsound + 15000) {
+          lastsound = Date.now();
+          var sound = 'whales/whale' + Math.floor(Math.random() * 12) + '.wav';
+          var whale = new Audio(sound);
+          whale.play()
+      }
   }
 
   function svg(){
