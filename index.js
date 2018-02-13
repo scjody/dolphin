@@ -3,16 +3,16 @@ var whale = (function () {
   var element = document.getElementById("container")
     , width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
     , height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-    , fps = 10
+    , fps = 15
     , easy = 6
-    , maxspeed = 200
+    , maxspeed = 300
     , delay = 15
     , mouse = {x: width/2, y: height/2}
     , kinect = {x: 0.5, y: 0.5, min: 0}
     , histsize = 5
-    , mindist = 250000
-    , stationarymargin = 0.1
-    , soundtime = 2
+    , mindist = 120000
+    , stationarymargin = 0.2
+    , soundtime = 1
     , soundinterval = 15
     , defs
     , parts
