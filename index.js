@@ -105,8 +105,12 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
   var stationaryframes = 0;
   var stat_x = 0.5, stat_y = 0.5;
 
-  function moveto(x, y) {
-    if (kinect.min < mindist) {
+  function moveto(x, y, kmin) {
+    if (x > 0.9 || x < 0.1) {
+        stationaryframes = 0;
+    } else if (kmin > mindist) {
+	console.log('moving');
+        console.log(x, y, kmin);
         movehist.push({x: x, y: y});
         var old = movehist.shift();
 
@@ -129,6 +133,8 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
             stat_y = new_y;
         }
     } else {
+	console.log('too far');
+        console.log(x, y, kmin);
         stationaryframes = 0;
     }
 
