@@ -45,6 +45,6 @@ killall python
 
 Default Budo URL is http://172.16.49.1:9966/
 
-## Footnote
+#### Footnote
 
-I've worked on a tool called [orca](https://github.com/plotly/orca) professionally, so I didn't want to use that name here!
+Also I've worked on a tool called [orca](https://github.com/plotly/orca) professionally, so I didn't want to use that name here!
