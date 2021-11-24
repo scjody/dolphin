@@ -1,6 +1,4 @@
-# dolphin
-
-:dolphin::dolphin::dolphin::dolphin:
+:dolphin::dolphin: "Killer whale" is a misnomer. Orcas are actually dolphins! [[*]](#footnote) :dolphin::dolphin:
 
 This is a quick app to support an interactive art piece based on:
     https://codepen.io/diegoleme/details/rIokB
@@ -46,3 +44,7 @@ killall python
 ```
 
 Default Budo URL is http://172.16.49.1:9966/
+
+#### Footnote
+
+Also I've worked on a tool called [orca](https://github.com/plotly/orca) professionally, so I didn't want to use that name here!
