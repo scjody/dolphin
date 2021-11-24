@@ -1,4 +1,4 @@
-:dolphin::dolphin: "Killer whale" is a misnomer. Orcas are actually dolphins! :dolphin::dolphin:
+:dolphin::dolphin: "Killer whale" is a misnomer. Orcas are actually dolphins! [[*]](#footnote) :dolphin::dolphin:
 
 This is a quick app to support an interactive art piece based on:
     https://codepen.io/diegoleme/details/rIokB
