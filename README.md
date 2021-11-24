@@ -4,6 +4,12 @@
 
 This is a quick app to support an interactive art piece based on:
     https://codepen.io/diegoleme/details/rIokB
+    
+The installation was a parent orca shown on a large TV that followed a child
+orca, which was a stuffed animal that participants could move around. It was
+installed in a box truck for Marché Noir 2017.
+
+![Orca on a TV!](https://raw.githubusercontent.com/scjody/dolphin/ea1520160c5ac473f2be7c45bdb2a07ad1eddf1d/parent_orca_photo.jpg)
 
 My original plans were way more ambitious: I was going to have a dolphin
 and a couple of whales you could interact with, based on the 3D models in the
