@@ -82,7 +82,7 @@ budo index.js --live
 killall python
 ```
 
-Default Budo URL is http://172.16.49.1:9966/
+Default Budo URL is http://172.16.49.1:9966/ - connect to this from a browser and maximize the browser window.
 
 #### Footnote
 
