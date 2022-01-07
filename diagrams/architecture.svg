@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="486px" preserveAspectRatio="none" style="width:684px;height:486px;background:#FFFFFF;" version="1.1" viewBox="0 0 684 486" width="684px" zoomAndPan="magnify"><defs><filter height="300%" id="f1nd8k32t7yi6" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[2b498b3ac55e7b096cf2946b851e4aaf]
+cluster laptop--><rect fill="#FFFFFF" filter="url(#f1nd8k32t7yi6)" height="233" style="stroke:#000000;stroke-width:1.5;" width="393" x="102.5" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="53" x="272.5" y="21.9951">laptop</text><!--MD5=[03758b7252c4e0968e46564ca512abb1]
+entity webbrowser--><rect fill="#FEFECE" filter="url(#f1nd8k32t7yi6)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="112" x="170.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="180.5" y="72.9951">web browser</text><!--MD5=[4e8ecd94af36cce41665c9f079adf9fd]
+entity backend--><rect fill="#FEFECE" filter="url(#f1nd8k32t7yi6)" height="52.5938" style="stroke:#000000;stroke-width:1.5;" width="82" x="126.5" y="163"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="136.5" y="185.9951">backend</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="136.5" y="202.292">(Python)</text><!--MD5=[df765aaf6d6e4cbc6db19e81d11c9550]
+entity budo--><rect fill="#FEFECE" filter="url(#f1nd8k32t7yi6)" height="52.5938" style="stroke:#000000;stroke-width:1.5;" width="220" x="243.5" y="163"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="253.5" y="185.9951">budo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="200" x="253.5" y="202.292">(builds and serves frontend)</text><!--MD5=[16d71ab64325772afaf76c5d63315f5a]
+entity kinect--><rect fill="#FEFECE" filter="url(#f1nd8k32t7yi6)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="66" x="134.5" y="317.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="144.5" y="340.4951">kinect</text><!--MD5=[6d2b5ec96e381727e29447e9d421c937]
+entity TV--><rect fill="#FEFECE" filter="url(#f1nd8k32t7yi6)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="39" x="520" y="171.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19" x="530" y="194.4951">TV</text><!--MD5=[754dc0ad1811b5da3b9413b234b7e923]
+entity speaker--><rect fill="#FEFECE" filter="url(#f1nd8k32t7yi6)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="78" x="594.5" y="171.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="604.5" y="194.4951">speaker</text><!--MD5=[3b1e1f29d6c8100eb600051b01ff3836]
+entity participant--><ellipse cx="46.5" cy="304.5" fill="#FEFECE" filter="url(#f1nd8k32t7yi6)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M46.5,312.5 L46.5,339.5 M33.5,320.5 L59.5,320.5 M46.5,339.5 L33.5,354.5 M46.5,339.5 L59.5,354.5 " fill="none" filter="url(#f1nd8k32t7yi6)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="6" y="372.9951">participant</text><!--MD5=[a7e28d03276ba6cfe486aaa35621633a]
+entity orca--><polygon fill="#FEFECE" filter="url(#f1nd8k32t7yi6)" points="137.5,466,122,453,91,453,75.5,466,91,479,122,479,137.5,466" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31" x="91" y="470.9951">orca</text><!--MD5=[be0f3f5a6e675aee8376d138105c8011]
+link backend to kinect--><path d="M167.5,221.536 C167.5,248.704 167.5,287.532 167.5,311.861 " fill="none" id="backend-kinect" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="167.5,317.121,171.5,308.121,167.5,312.121,163.5,308.121,167.5,317.121" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="167.5,216.244,163.5,225.244,167.5,221.244,171.5,225.244,167.5,216.244" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[f403e5eae7fb45971f2b913cbaf78b3e]
+link webbrowser to budo--><path d="M244.696,86.121 C264.878,105.112 297.801,136.09 322.153,159.004 " fill="none" id="webbrowser-to-budo" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="325.984,162.609,322.1697,153.5288,322.3422,159.183,316.688,159.3556,325.984,162.609" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="62" x="295.5" y="129.0669">port 9966</text><!--MD5=[bdb9fad4e23e5efe18b44d6e7c0d6854]
+link webbrowser to backend--><path d="M218.047,86.121 C208.825,104.799 193.878,135.073 182.625,157.866 " fill="none" id="webbrowser-to-backend" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="180.283,162.609,187.8543,156.3102,182.4968,158.1258,180.6812,152.7682,180.283,162.609" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="62" x="203.5" y="129.0669">port 8888</text><!--MD5=[a7a1f3a4105c050ec91928801a73d6e1]
+link laptop to TV--><path d="M495.5621,87.5274 C495.7782,88.0238 495.9974,88.5276 496.2197,89.0385 C496.6643,90.0603 497.1213,91.1104 497.5894,92.1862 C499.4619,96.4894 501.5132,101.2036 503.6705,106.1611 C512.2995,125.9912 522.6225,149.714 529.967,166.591 " fill="none" id="laptop-to-TV" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="532.043,171.363,532.1207,161.5144,530.0484,166.7781,524.7848,164.7058,532.043,171.363" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7ae6342fb02de8bdbd784bc55e14f32c]
+link laptop to speaker--><path d="M495.511,75.557 C495.6111,75.639 495.712,75.7216 495.8137,75.8049 C496.0172,75.9714 496.224,76.1407 496.434,76.3126 C498.1141,77.6877 500.0006,79.2318 502.067,80.9231 C510.3326,87.6884 521.4764,96.8096 533.7974,106.8943 C558.4393,127.0635 587.7895,151.0865 608.239,167.824 " fill="none" id="laptop-to-speaker" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="612.562,171.363,608.132,162.5667,608.6932,168.1956,603.0642,168.7568,612.562,171.363" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0202dd74efd495f5694e7de9c70efa00]
+link participant to orca--><path d="M36.8761,376.326 C35.2068,391.7128 35.9843,408.9567 43.5,423 C51.469,437.8902 67.3068,448.4131 81.1082,455.2019 " fill="none" id="participant-to-orca" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="85.6963,457.362,79.2573,449.9095,81.1726,455.2323,75.8498,457.1475,85.6963,457.362" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="79" x="44.5" y="419.0669">manipulates</text><!--MD5=[8c0abe22d2637dfef8d3801d3e5346ae]
+link kinect to orca--><path d="M160.17,353.543 C152.541,371.089 140.109,399.1537 128.5,423 C124.383,431.458 119.557,440.7344 115.476,448.413 " fill="none" id="kinect-to-orca" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="113.044,452.9659,120.8119,446.9111,115.3992,448.5554,113.755,443.1427,113.044,452.9659" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="48" x="137.5" y="419.0669">detects</text><!--MD5=[29eabfbf8c6ca1bc073318a26eae1bed]
+@startuml
+rectangle laptop {
+  rectangle webbrowser as "web browser"
+  rectangle backend [
+    backend
+    (Python)
+  ]
+  rectangle budo [
+    budo
+    (builds and serves frontend)
+  ]
+
+}
+rectangle kinect
+rectangle TV
+rectangle speaker
+
+backend <- -> kinect
+webbrowser - -> budo     : port 9966
+webbrowser - -> backend  : port 8888
+laptop - -> TV
+laptop - -> speaker
+
+actor participant
+hexagon orca
+participant ..> orca     : manipulates
+kinect ..> orca   : detects
+@enduml
+
+PlantUML version 1.2021.17beta10(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

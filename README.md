@@ -18,6 +18,45 @@ orca on codepen. It's still a marine mammal!
 Requirements:
 * Kinect 360, libfreenect, freenect Python libraries
 
+## Architecture:
+
+![](diagrams/architecture.svg)
+
+<details><summary>Raw architecture PlantUML - can be ignored</summary>
+<p>
+
+```plantuml:architecture
+rectangle laptop {
+  rectangle webbrowser as "web browser"
+  rectangle backend [
+    backend
+    (Python)
+  ]
+  rectangle budo [
+    budo
+    (builds and serves frontend)
+  ]
+
+}
+rectangle kinect
+rectangle TV
+rectangle speaker
+
+backend <--> kinect
+webbrowser --> budo     : port 9966
+webbrowser --> backend  : port 8888
+laptop --> TV
+laptop --> speaker
+
+actor participant
+hexagon orca
+participant ..> orca     : manipulates
+kinect ..> orca   : detects
+```
+
+</p>
+</details>
+
 ## Build:
 ```
 # Kinect libraries for backend:
